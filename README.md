@@ -1,4 +1,3 @@
-Here’s a well-structured README template you can use for your **To-Do List** repository:
 
 ---
 
