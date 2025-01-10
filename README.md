@@ -15,10 +15,7 @@ A simple, interactive to-do list application that allows users to add, remove, a
 - **Simple UI**: Minimalist design for better user experience.
 - **Responsive Design**: Works seamlessly across different screen sizes and devices.
 
-## Demo
 
-You can try a live demo of the application [here](https://your-demo-link.com).  
-*(Make sure to replace the link with the actual live demo link if you have one)*
 
 ## Installation
 
