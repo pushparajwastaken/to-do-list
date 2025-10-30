@@ -1,0 +1,45 @@
+/* src/components/PriorityDropdown.css */
+.priority-dropdown {
+  position: relative;
+  width: 200px;
+  font-family: "Poppins", sans-serif;
+}
+
+.selected-priority {
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dropdown-list {
+  position: absolute;
+  top: 105%;
+  width: 100%;
+  max-height: 150px; /* Scroll area height */
+  overflow-y: auto; /* Enables scrolling */
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  z-index: 10;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.dropdown-item:hover {
+  background: #f0f0f0;
+}
+
+.arrow {
+  font-size: 12px;
+  margin-left: 8px;
+}
