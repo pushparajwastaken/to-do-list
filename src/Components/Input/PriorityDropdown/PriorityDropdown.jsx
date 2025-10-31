@@ -24,22 +24,18 @@ export const PriorityDropdown = ({ onSelect }) => {
       </div>
       {isOpen && (
         <div className="dropdown-list">
-          {
-            (priorities.map = (priority) => (
-              <div
-                key={priority.value}
-                className="dropdown-item"
-                style={{
-                  borderLeft: `5px solid ${priority.color}`,
-                }}
-                onClick={() => {
-                  handleSelect(priority);
-                }}
-              >
-                {priority.label}
-              </div>
-            ))
-          }
+          {priorities.map((priority) => (
+            <div
+              key={priority.value}
+              className="dropdown-item"
+              style={{
+                borderLeft: `5px solid ${priority.color}`,
+              }}
+              onClick={() => handleSelect(priority)}
+            >
+              {priority.label}
+            </div>
+          ))}
         </div>
       )}
     </div>
