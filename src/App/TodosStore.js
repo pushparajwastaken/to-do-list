@@ -1,6 +1,6 @@
 import { stringify } from "postcss";
 import { create } from "zustand";
-const useTodos = create((set, get) => {
+const useTodoStore = create((set, get) => {
   todos: JSON.parse(localStorage.getItem("todos")) || [];
   addTodos: (todo) => {
     const updatedTodos = [...get().todos, todo];
@@ -31,3 +31,4 @@ const useTodos = create((set, get) => {
     localStorage.removeItem("todos");
   };
 });
+export default useTodoStore;
