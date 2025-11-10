@@ -1,44 +1,25 @@
-import React, { useState } from "react";
-import { useTodoStore } from "../../App/TodosStore.js";
-import { priorityLevels } from "../../App/index.js";
-import { PriorityDropdown } from "./PriorityDropdown.jsx";
-
+import { useState, useEffect } from "react";
+import { useTodoStore } from "../../App/TodosStore";
 const Input = () => {
-  const addTodo = useTodoStore((state) => state.addTodo);
-  const [showPopUp, setShowPopUp] = useState(false);
-  const [taskTitle, setTaskTitle] = useState("");
-  const [priority, setPriority] = useState(priorityLevels[1].value); // default "high"
-  const [timer, setTimer] = useState(""); // for timer input
+  const { addTodo } = useTodoStore((state) => state.addTodo);
 
-  const handleAdd = () => {
-    if (!taskTitle.trim()) return alert("Enter a task");
-    addTodo(taskTitle, priority, timer);
-    setTaskTitle("");
-    setTimer("");
-    setShowPopUp(false);
-  };
+  addTodo: return (
+    <div className="rounded-3xl border-black border-4 px-32 py-48 m-8">
+      <p className="text-5xl px-8 font-mono">Add Tasks</p>
 
-  return (
-    <div>
-      <button onClick={() => setShowPopUp(true)}>Add a Task</button>
+      <form action="" className="flex gap-3 items-center">
+        <input
+          type="text"
+          placeholder="Tasks"
+          className="font-mono h-12 px-20 flex-1 rounded-lg border-2 border-black  focus:border-black"
+        />
+        <br />
 
-      {showPopUp && (
-        <div>
-          <h2>Enter your task</h2>
-          <input
-            type="text"
-            value={taskTitle}
-            onChange={(e) => setTaskTitle(e.target.value)}
-            placeholder="Task"
-          />
-
-          <PriorityDropdown setPriority={setPriority} />
-          <button onClick={handleAdd}>Add</button>
-          <button onClick={() => setShowPopUp(false)}>Cancel</button>
-        </div>
-      )}
+        <button className="font-mono flex-1 h-12 my-6 rounded-lg px-4  bg-black  hover:bg-neutral-500 text-white ">
+          Submit
+        </button>
+      </form>
     </div>
   );
 };
-
 export default Input;
