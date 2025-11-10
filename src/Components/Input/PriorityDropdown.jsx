@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { priorityLevels } from "../../App";
-export const PriorityDropdown = () => {
+import { priorityLevels } from "../../App/index.js";
+export const PriorityDropdown = (setPriority) => {
   const [showDropdown, setShowDropdown] = useState(false);
   return (
     <div>

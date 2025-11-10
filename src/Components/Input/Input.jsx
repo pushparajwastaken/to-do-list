@@ -7,12 +7,14 @@ const Input = () => {
   const addTodo = useTodoStore((state) => state.addTodo);
   const [showPopUp, setShowPopUp] = useState(false);
   const [taskTitle, setTaskTitle] = useState("");
-  const [priority, setPriority] = useState(priorityLevels[1].value); // default "high
+  const [priority, setPriority] = useState(priorityLevels[1].value); // default "high"
+  const [timer, setTimer] = useState(""); // for timer input
 
   const handleAdd = () => {
     if (!taskTitle.trim()) return alert("Enter a task");
-    addTodo(taskTitle);
+    addTodo(taskTitle, priority, timer);
     setTaskTitle("");
+    setTimer("");
     setShowPopUp(false);
   };
 
@@ -29,8 +31,8 @@ const Input = () => {
             onChange={(e) => setTaskTitle(e.target.value)}
             placeholder="Task"
           />
-          <p>Set Priority</p>
-          <PriorityDropdown />
+
+          <PriorityDropdown setPriority={setPriority} />
           <button onClick={handleAdd}>Add</button>
           <button onClick={() => setShowPopUp(false)}>Cancel</button>
         </div>
