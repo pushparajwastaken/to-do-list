@@ -15,7 +15,12 @@ const Input = () => {
         />
         <br />
 
-        <button className="font-mono flex-1 h-12 my-6 rounded-lg px-4  bg-black  hover:bg-neutral-500 text-white ">
+        <button
+          onClick={() => {
+            addTodo;
+          }}
+          className="font-mono flex-1 h-12 my-6 rounded-lg px-4  bg-black  hover:bg-neutral-500 text-white "
+        >
           Submit
         </button>
       </form>

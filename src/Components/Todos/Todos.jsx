@@ -5,32 +5,15 @@ export const Todos = () => {
 
   return (
     <div>
-      {todos.length === 0 && <p>No todos yet!!</p>}
-      {todos.map((todo) => (
-        <div key={todo.id}>
-          <input
-            type="checkbox"
-            checked={todo.isCompleted}
-            onChange={() => {
-              toggleComplete(todo.id);
-            }}
-          />
-          <span
-            style={{
-              textDecoration: todo.isCompleted ? "line-through" : "none",
-            }}
-          >
-            {todo.title}
-          </span>
-          <button
-            onClick={() => {
-              removeTodo(todo.id);
-            }}
-          >
-            Delete Todo
-          </button>
+      {todos.length === 0 ? (
+        <p className="text-5xl font-mono px-32 py-56 m-8">No todos yet</p>
+      ) : (
+        <div>
+          {todos.map((todo) => (
+            <p key={todo.id}>{todo.title})</p>
+          ))}
         </div>
-      ))}
+      )}
     </div>
   );
 };
