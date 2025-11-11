@@ -4,13 +4,20 @@ export const Todos = () => {
   const { todos, toggleComplete, removeTodo } = useTodoStore();
 
   return (
-    <div>
+    <div className="font-mono">
       {todos.length === 0 ? (
-        <p className="text-5xl font-mono px-32 py-56 m-8">No todos yet</p>
+        <p className="md:w-1/2 w-full p-3 text-5xl font-mono">No todos yet</p>
       ) : (
-        <div>
+        <div className="border-4">
           {todos.map((todo) => (
-            <p key={todo.id}>{todo.title})</p>
+            <div
+              key={todo.id}
+              className=" w-full border-4 border-black border-spacing-y-3 md:w-1/2"
+            >
+              <p>{todo.title}</p>
+              <p>{todo.deadline}</p>
+              <p>{todo.priority}</p>
+            </div>
           ))}
         </div>
       )}

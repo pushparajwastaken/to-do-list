@@ -1,25 +1,72 @@
 import { useState, useEffect } from "react";
 import { useTodoStore } from "../../App/TodosStore";
 const Input = () => {
-  const { addTodo } = useTodoStore((state) => state.addTodo);
+  const addTodo = useTodoStore((state) => state.addTodo);
+  const [title, setTitle] = useState("");
+  const [time, setTime] = useState("");
+  const [priority, setPriority] = useState("High 🔥");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const deadline = `${time}`;
+    if (new Date(deadline) < new Date())
+      return alert("Deadline must be in the future!");
+    if (!title.trim()) return alert("Please Enter a task!");
+    addTodo({
+      title,
+      deadline,
+      priority,
+    });
+    setTitle("");
 
-  addTodo: return (
-    <div className="rounded-3xl border-black border-4 px-32 py-48 m-8">
-      <p className="text-5xl px-8 font-mono">Add Tasks</p>
+    setTime("");
+    setPriority("High 🔥");
+  };
+  return (
+    <div className="rounded-3xl md:w-1/2 w-full p-8 border-black border-4  m-8">
+      <p className="text-5xl px-2 font-mono mb-6">Add Tasks</p>
+      <form onSubmit={handleSubmit} className="font-mono space-y-6">
+        <div className="grid grid-cols-2 gap-6 items-end">
+          <div className="col-span-2">
+            <input
+              type="text"
+              value={title}
+              placeholder="Enter your task"
+              onChange={(e) => setTitle(e.target.value)}
+              className="box-border font-mono h-12 px-4 flex-1 pr-40 rounded-lg border-2 border-black  focus:border-black"
+            />
+          </div>
 
-      <form action="" className="flex gap-3 items-center">
-        <input
-          type="text"
-          placeholder="Tasks"
-          className="font-mono h-12 px-20 flex-1 rounded-lg border-2 border-black  focus:border-black"
-        />
+          <div className="flex flex-col">
+            <label htmlFor="Deadline" className="font-mono text-2xl mb-1">
+              Deadline
+            </label>
+            <input
+              type="time"
+              value={time}
+              onChange={(e) => setTime(e.target.value)}
+              className="border-2 border-black rounded-lg h-12 px-3 py-2"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label htmlFor="priority" className="font-mono text-2xl mb-1">
+              Priority
+            </label>
+            <select
+              value={priority}
+              id="priority"
+              onChange={(e) => setPriority(e.target.value)}
+              className="border-black box-border border-2 rounded-lg w-full h-[3rem] px-3 bg-white"
+            >
+              <option value="High 🔥">High 🔥</option>
+              <option value="Medium ⚖️">Medium ⚖️</option>
+              <option value="Low 🧘">Low 🧘</option>
+            </select>
+          </div>
+        </div>
         <br />
-
         <button
-          onClick={() => {
-            addTodo;
-          }}
-          className="font-mono flex-1 h-12 my-6 rounded-lg px-4  bg-black  hover:bg-neutral-500 text-white "
+          type="submit"
+          className="font-mono w-full h-12 rounded-lg px-4  bg-black  hover:bg-neutral-500 text-white "
         >
           Submit
         </button>

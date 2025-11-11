@@ -4,13 +4,15 @@ export const useTodoStore = create(
   persist(
     (set, get) => ({
       todos: [],
-      addTodo: (title) => {
+      addTodo: ({ title, deadline, priority }) => {
         const updatedTodos = [
           ...get().todos,
           {
             id: Date.now(),
             title,
             isCompleted: false,
+            deadline,
+            priority,
           },
         ];
         set({ todos: updatedTodos });
