@@ -56,7 +56,7 @@ export const Todos = () => {
     <div className="font-mono flex justify-center items-center w-full h-[60vh]">
       {todos.length === 0 ? (
         <p className="md:w-1/2 w-full text-center pt-24 text-5xl font-mono">
-          No todos yet
+          No tasks yet
         </p>
       ) : (
         <div className="flex flex-col w-full gap-4 p-4 items-start md:w-1/2">
