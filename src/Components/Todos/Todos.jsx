@@ -54,14 +54,6 @@ export const Todos = () => {
 
   return (
     <div className="font-mono flex justify-center items-center w-full h-[60vh]">
-      <button
-        onClick={() =>
-          new Notification("🔔 Test Notification", { body: "It works!" })
-        }
-        className="border-2 border-black px-4 py-2 m-4"
-      >
-        Test Notification
-      </button>
       {todos.length === 0 ? (
         <p className="md:w-1/2 w-full text-center pt-24 text-5xl font-mono">
           No todos yet
