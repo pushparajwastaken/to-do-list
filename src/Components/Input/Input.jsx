@@ -22,7 +22,7 @@ const Input = () => {
     setPriority("High 🔥");
   };
   return (
-    <div className="rounded-3xl md:w-1/2 w-full p-8 border-black border-4  m-8">
+    <div className="rounded-3xl md:w-1/2 w-full p-8 border-black border-4 my-8 hover:scale-105  shadow-[8px_8px_0px_0px_#000] transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[12px_12px_0px_0px_#000]">
       <p className="text-5xl px-2 font-mono mb-6">Add Tasks</p>
       <form onSubmit={handleSubmit} className="font-mono space-y-6">
         <div className="grid grid-cols-2 gap-6 items-end">
@@ -32,7 +32,7 @@ const Input = () => {
               value={title}
               placeholder="Enter your task"
               onChange={(e) => setTitle(e.target.value)}
-              className="box-border font-mono h-12 px-4 flex-1 pr-40 rounded-lg border-2 border-black  focus:border-black"
+              className="w-full box-border font-mono h-12 px-4 flex rounded-lg border-2 border-black  focus:border-black"
             />
           </div>
 

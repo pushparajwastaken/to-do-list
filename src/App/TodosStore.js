@@ -13,6 +13,8 @@ export const useTodoStore = create(
             isCompleted: false,
             deadline,
             priority,
+            notified: false,
+            notifiedDeadline: false,
           },
         ];
         set({ todos: updatedTodos });
