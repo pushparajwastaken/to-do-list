@@ -54,7 +54,7 @@ export const Todos = () => {
   }, [todos]);
 
   return (
-    <div className="font-mono flex justify-center items-center w-full min-h-[60vh]">
+    <div className="font-mono flex justify-center w-full min-h-screen">
       {todos.length === 0 ? (
         <p className="md:w-1/2 w-full text-center pt-24 text-5xl font-mono">
           No tasks yet
