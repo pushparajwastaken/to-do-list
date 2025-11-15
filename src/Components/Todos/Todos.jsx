@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { Pencil, X, CheckSquare } from "lucide-react";
 import { useTodoStore } from "../../App/TodosStore";
 
@@ -13,6 +13,7 @@ export const Todos = () => {
       console.log("Notifications not supported in this browser.");
     }
   }, []);
+  const todoref = useRef(null);
   useEffect(() => {
     if (!("Notification" in window) || Notification.permission !== "granted")
       return;

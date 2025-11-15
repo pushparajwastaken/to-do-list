@@ -1,7 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+
 import { useTodoStore } from "../../App/TodosStore";
 const Input = () => {
   const addTodo = useTodoStore((state) => state.addTodo);
+  const downloadCard = useTodoStore((state) => state.downloadCard);
   const [title, setTitle] = useState("");
   const [time, setTime] = useState("");
   const [priority, setPriority] = useState("High 🔥");

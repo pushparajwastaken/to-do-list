@@ -1,5 +1,8 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
+
+import * as htmlToImage from "html-to-image";
+import download from "downloadjs";
 export const useTodoStore = create(
   persist(
     (set, get) => ({
@@ -42,6 +45,7 @@ export const useTodoStore = create(
         );
         set({ todos: updatedTodos });
       },
+
       clearAll: () => set({ todos: [] }),
     }),
     {
