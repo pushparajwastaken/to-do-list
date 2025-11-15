@@ -54,13 +54,13 @@ export const Todos = () => {
   }, [todos]);
 
   return (
-    <div className="font-mono flex justify-center items-center w-full h-[60vh]">
+    <div className="font-mono flex justify-center items-center w-full min-h-[60vh]">
       {todos.length === 0 ? (
         <p className="md:w-1/2 w-full text-center pt-24 text-5xl font-mono">
           No tasks yet
         </p>
       ) : (
-        <div className="flex flex-col w-full gap-4 p-4 items-start md:w-1/2">
+        <div className="flex flex-col w-full gap-4 p-4 items-start md:w-1/2 ">
           {todos.map((todo) => (
             <div
               key={todo.id}
