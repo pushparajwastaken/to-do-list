@@ -1,8 +1,5 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-
-import * as htmlToImage from "html-to-image";
-import download from "downloadjs";
 export const useTodoStore = create(
   persist(
     (set, get) => ({
@@ -21,6 +18,20 @@ export const useTodoStore = create(
           },
         ];
         set({ todos: updatedTodos });
+      },
+      extractDateFromId: (todoid) => {
+        const date = new Date(Number(todoid));
+        return date.toISOString().split("T")[0];
+      },
+      grouptodobydate: (todos) => {
+        return todos.reduce((groups, todo) => {
+          const dateKey = get().extractDateFromId(todo.id);
+
+          if (!groups[dateKey]) groups[dateKey] = [];
+          groups[dateKey].push(todo);
+
+          return groups;
+        }, {});
       },
       removeTodo: (todoId) => {
         const updatedTodos = get().todos.filter((todo) => todo.id !== todoId);

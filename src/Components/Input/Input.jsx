@@ -24,10 +24,10 @@ const Input = () => {
     setPriority("High 🔥");
   };
   return (
-    <div className="rounded-3xl md:w-1/2 w-full p-8 border-black border-4 my-8 hover:scale-105  shadow-[8px_8px_0px_0px_#000] transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[12px_12px_0px_0px_#000]">
+    <div className="rounded-3xl md:w-1/2 w-full p-8 ml-2 border-black border-4 my-8 hover:scale-105  shadow-[8px_8px_0px_0px_#000] transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[12px_12px_0px_0px_#000]">
       <p className="text-5xl px-2 font-mono mb-6">Add Tasks</p>
       <form onSubmit={handleSubmit} className="font-mono space-y-6">
-        <div className="grid grid-cols-2 gap-6 items-end">
+        <div className="grid grid-cols-2 gap-6">
           <div className="col-span-2">
             <input
               type="text"
@@ -39,7 +39,7 @@ const Input = () => {
           </div>
 
           <div className="flex flex-col">
-            <label htmlFor="Deadline" className="font-mono text-2xl mb-1">
+            <label htmlFor="Deadline" className="font-mono text-xl mb-1">
               Deadline
             </label>
             <input
@@ -50,7 +50,7 @@ const Input = () => {
             />
           </div>
           <div className="flex flex-col">
-            <label htmlFor="priority" className="font-mono text-2xl mb-1">
+            <label htmlFor="priority" className="font-mono text-xl mb-1">
               Priority
             </label>
             <select
